@@ -2,8 +2,8 @@
 
 # Modyfikacje drzewa parsowania
 #
-# Zadanie 8 - Rozwinięcie snippetu FOR
-# Autor: Mikołaj Bednarek
+# Zadanie 8 - Rozwiniecie snippetu FOR
+# Autor: Mikolaj Bednarek
 
 from ast import *
 import astunparse
@@ -91,7 +91,9 @@ show_code = True
 execute = False
 show_ast = False
 
-for arg in sys.argv[1:]:
+start_at = 2 if sys.argv[0] == 'python' else 1
+
+for arg in sys.argv[start_at:]:
     if arg[0] != '-':
         file_name = arg
     else:
@@ -131,4 +133,4 @@ try:
             exec(ast_code)
 except FileNotFoundError:
     print("No such file fount")
-    sys.exit(2)
+sys.exit(2)
